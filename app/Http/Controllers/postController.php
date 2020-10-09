@@ -40,21 +40,39 @@ class postController extends Controller
                 
             ];
             $image=$request->file('feature_image');
+            if($image){
+                $image_name=Str::random(20);
+                $ext=strtolower($image->getClientOriginalExtension());
+                $image_full_name=$image_name.'.'.$ext;
+                $upload_path='image/';
+                $image_url=$upload_path.$image_full_name;
+                $success=$image->move($upload_path,$image_full_name);
         
-            $image_name=Str::random(20);
-            $ext=strtolower($image->getClientOriginalExtension());
-            $image_full_name=$image_name.'.'.$ext;
-            $upload_path='image/';
-            $image_url=$upload_path.$image_full_name;
-            $success=$image->move($upload_path,$image_full_name);
-    
-            $data['feature_image']=$image_url;
-            Post::insert($data);
-            Session::put('messege','Post added successfully!!');
-            return Redirect::to('/dashboard/add-post');
+                $data['feature_image']=$image_url;
+                Post::insert($data);
+                Session::put('messege','Post added successfully!!');
+                return Redirect::to('/dashboard/create-post');
+            }else{
+                $data['feature_image']= "";
+                Post::insert($data);
+                Session::put('messege','Post added successfully without image!!');
+                return Redirect::to('/dashboard/create-post');
+            }
+        
+            
         
           
         
+    }
+    public function show(){
+        $shows = Post::all();
+        return view('dash.post.list',['shows'=>$shows]);
+    }
+    public function edit($id){
+        $edit = Post::where('id',$id)->get();
+        $cats = Category::all();
+        
+        return view('dash.post.edit',compact('edit','cats'));
     }
 
     

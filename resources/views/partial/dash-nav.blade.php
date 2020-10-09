@@ -65,14 +65,20 @@
                         <a href="/dashboard/add-category" class="waves-effect"><i class="fa fa-calendar-minus-o fa-fw" aria-hidden="true"></i>Add Category</a>
                     </li>
                     <li>
-                        <a href="/dashboard/add-post" class="waves-effect"><i class="fa fa-calendar-minus-o fa-fw" aria-hidden="true"></i>Add Post</a>
+                        <a href="/dashboard/create-post" class="waves-effect"><i class="fa fa-calendar-minus-o fa-fw" aria-hidden="true"></i>Add Post</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/post-list" class="waves-effect"><i class="fa fa-calendar-minus-o fa-fw" aria-hidden="true"></i>All Post</a>
                     </li>
                     
                     <li>
-                        <a href="map-google.html" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>Google Map</a>
+                        <a href="{{route('subscriber')}}" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>Subscriber List</a>
                     </li>
                     <li>
-                        <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Blank Page</a>
+                        <a href="{{route('menu')}}" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>Menu </a>
+                    </li>
+                    <li>
+                        <a href="{{route('site')}}" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Site setting</a>
                     </li>
                     <li>
                         <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>Error 404</a>
